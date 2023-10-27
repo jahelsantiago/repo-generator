@@ -1,5 +1,6 @@
-from repo_generator.github import GithubClient
+from repo_generator.source_cotrol import GithubClient
 from repo_generator.config_loader import config
+from .utils import remove_repo_if_exist
 import pytest
 
 
@@ -74,11 +75,3 @@ def test_add_nonexistent_collaborator_to_repo():
 
 
 
-def remove_repo_if_exist(repo_name: str):
-    github_client = GithubClient()
-    repo = github_client.get_repo(repo_name)
-    if repo is not None:
-        repo.delete()
-        
-
-    repo.delete()
