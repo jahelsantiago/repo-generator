@@ -1,24 +1,15 @@
-# ls.py v1
-
-from pathlib import Path
-from config_loader import config
- 
-
 import click
+from repo_generator.creator import create_challenge
 
 @click.command()
-@click.argument("path")
-def cli(path):
-    target_dir = Path(path)
-    if not target_dir.exists():
-        click.echo("The target directory doesn't exist")
-        raise SystemExit(1)
-
-    for entry in target_dir.iterdir():
-        click.echo(f"{entry.name:{len(entry.name) + 5}}", nl=False)
-
-    click.echo()
+@click.argument("username")
+def cli(username):
+    print("Creating challenge for user: {}".format(username))
+    try:
+        create_challenge(username)
+    except Exception as e:
+        print(e)
+        print("Something went wrong, please try again")
 
 if __name__ == "__main__":
-    print(config)
     cli()

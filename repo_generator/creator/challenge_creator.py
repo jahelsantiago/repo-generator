@@ -8,7 +8,7 @@ CHALLENGE_NAME = config["challenge"]["name"]
 REVIEWERS = config["challenge"]["reviewers"]
 
 @temporary_directory
-def create_challenge(participant_github_username):
+def create_challenge(participant_github_username:str):
     github_client = GithubClient()
 
     #check if the user exists
@@ -22,7 +22,7 @@ def create_challenge(participant_github_username):
     #create remote repo
     candidate_challenge_repo = github_client.create_github_repo(f"{CHALLENGE_NAME}-{participant_github_username}")
 
-    #clone the repo
+    #clone the repo and remove git history and tracking
     git_client.clone_and_reset_git_repo(CHALLENGE_REPOSITORY_URL)
 
     #add remote

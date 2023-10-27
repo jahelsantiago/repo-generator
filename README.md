@@ -1,3 +1,11 @@
+## Run instructions
+
+Run this command to sent an invitation to the candidate to participate in the test:
+
+```bash
+python -m repo_generator.cli <candidate_github_username>
+```
+
 
 ## Configurations
 
