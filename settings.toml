@@ -1,0 +1,11 @@
+[github]
+username = ""
+access_token = ""
+
+[challenge]
+name = "Aider-macheight" #Name of the challenge
+repository_url = "https://github.com/jahelsantiago/aider.git" #Link to the original repo for the challenge
+reviewers = [] #The ones that will review the submissions, provide their github usernames
+
+
+
