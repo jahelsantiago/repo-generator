@@ -13,7 +13,6 @@ class GitClient:
         self.init_git()
         self.commmit_all("Initial commit")
 
-
     def init_git(self):
         self.repo = Repo.init(self.path)
         return self.repo
@@ -24,7 +23,7 @@ class GitClient:
     def remove_git_history(self):
         git_dir = os.path.join(self.path, ".git")
         shutil.rmtree(git_dir)
-        
+
     def commmit_all(self, message: str):
         self.repo.index.add("*")
         self.repo.index.commit(message)
@@ -32,11 +31,5 @@ class GitClient:
     def set_remote(self, repository_url: str):
         self.repo.create_remote("origin", repository_url)
 
-
     def push(self):
         self.repo.remotes.origin.push("master", force=True)
-    
-
-
-    
-
