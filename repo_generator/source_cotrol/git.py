@@ -32,4 +32,6 @@ class GitClient:
         self.repo.create_remote("origin", repository_url)
 
     def push(self):
+        self.repo.git.execute(
+            ['git', 'config', 'http.postBuffer', '524288000'])
         self.repo.remotes.origin.push("master", force=True)
